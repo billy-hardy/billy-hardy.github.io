@@ -1,0 +1,33 @@
+<template id="blog-header">
+</template>
+<script>
+    class BlogHeader extends HTMLElement {
+        constructor() {
+            super();
+            let shadowRoot = this.attachShadow({mode: 'open'});
+            const t = document.currentScript.ownerDocument.querySelector("#blog-header");
+            const instance = t.content.cloneNode(true);
+            shadowRoot.appendChild(instance);
+        }
+
+        static get observedAttributes() {
+            return ["blog-title"];
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            if(name == "blog-title") {
+                this.blogTitle = newValue;
+            } 
+        }
+
+        get blogTitle() {
+            return this.getAttribute("blog-title");
+        }
+
+        set blogTitle(val) {
+            this.setAttribute("blog-title", val);
+            this.shadowRoot.innerHTML = val;
+        }
+    }
+    customElements.define('blog-header', BlogHeader);
+</script>
