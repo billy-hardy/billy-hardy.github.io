@@ -1,0 +1,50 @@
+<template id="blog-post">
+<span></span>
+<a></a>
+</template>
+<script>
+    class BlogPost extends HTMLElement {
+        constructor() {
+            super();
+            this.content = [];
+            let shadowRoot = this.attachShadow({mode: 'open'});
+            const t = document.currentScript.ownerDocument.querySelector("#blog-post");
+            const instance = t.content.cloneNode(true);
+            shadowRoot.appendChild(instance);
+            this._span = shadowRoot.querySelector("span");
+            this._anchor = shadowRoot.querySelector("a");
+        }
+
+        static get observedAttributes() {
+            return ["date", "path"];
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            if (name == "date") {
+                this._date = new Date(newValue);
+                this._span.innerHTML = this._date.toDateString();
+            }
+            else if (name == "path") {
+                this._path = newValue;
+                this._anchor.href = this._path;
+            }
+        }
+
+        get date() {
+            return this._date;
+        }
+
+        set date(newValue) {
+            this.setAttribute("date", newValue);
+        }
+
+        get path() {
+            return this._path;
+        }
+
+        set path(newValue) {
+            this.setAttribute("path", newValue);
+        }
+    }
+    customElements.define('blog-post', BlogPost);
+</script>
