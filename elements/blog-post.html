@@ -21,7 +21,7 @@
 
         attributeChangedCallback(name, oldValue, newValue) {
             if (name == "date") {
-                this._date = new Date(newValue);
+                this._date = new Date(Number(newValue));
                 this._span.innerHTML = this._date.toDateString();
             }
             else if (name == "path") {
