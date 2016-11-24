@@ -1,5 +1,14 @@
 <template id="blog-post">
-<a><span></span><slot></slot></a>
+<style>
+    a {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<a>
+    <span></span>
+    <slot></slot>
+</a>
 </template>
 <script>
     class BlogPost extends HTMLElement {

@@ -5,9 +5,16 @@
         <script src="install.js"></script>
         <link rel="import" href="elements/blog-header.html">
         <link rel="import" href="elements/blog-post.html">
+        <style>
+            .blog-content {
+                width: 200px;
+            }
+        </style>
     </head>
     <body>
-        <blog-header><h2 slot="title">Billy was here</h2></blog-header>
-        <blog-post date="1480010340345" path="./">Test</blog-post>
+        <blog-header><h2 slot="title">Test Blog by Billy Hardy</h2></blog-header>
+        <div class="blog-content">
+            <blog-post date="1480010340345" path="./">Test</blog-post>
+        </div>
     </body>
 </html>
