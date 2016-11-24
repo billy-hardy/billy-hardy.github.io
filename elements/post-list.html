@@ -1,12 +1,11 @@
-<template id="blog-header">
-<slot name="title"></slot>
+<template id="post-list">
 </template>
 <script>
-    class BlogHeader extends HTMLElement {
+    class PostList extends HTMLElement {
         constructor() {
             super();
             let shadowRoot = this.attachShadow({mode: 'open'});
-            const t = document.currentScript.ownerDocument.querySelector("#blog-header");
+            const t = document.currentScript.ownerDocument.querySelector("#post-list");
             const instance = t.content.cloneNode(true);
             shadowRoot.appendChild(instance);
         }
