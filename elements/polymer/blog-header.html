@@ -1,0 +1,29 @@
+<!-- Load the Polymer.Element base class -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="blog-post">
+<template>
+
+<div>
+    <slot></slot>
+</div>
+
+</template>
+
+<script>
+
+    // Extend Polymer.Element base class
+    class BlogPost extends Polymer.Element {
+
+        static get is() { return 'blog-post' }
+
+        connectedCallback() {
+            super.connectedCallback();
+        }
+
+    }
+    // Register custom element definition using standard platform API
+    customElements.define(BlogPost.is, BlogPost);
+
+</script>
+</dom-module>
