@@ -1,5 +1,6 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../imports/moment.html">
 
 <dom-module id="blog-post">
 <template>
@@ -38,7 +39,7 @@
         }
 
         _getHumanReadable(date) {
-            return new Date(date).toString();
+            return moment(date).format('MMM Do YYYY');
         }
 
     }
