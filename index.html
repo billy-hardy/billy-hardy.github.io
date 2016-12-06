@@ -3,6 +3,8 @@
         <title>Billy Hardy</title>
         <meta charset="UTF-8">
         <script src="install.js"></script>
+        <script src="main.js"></script>
+        <script src="node_modules/idb-keyval/idb-keyval.js"></script>
         <link rel="import" href="bower_components/polymer/polymer.html">
         <link rel="import" href="elements/blog-header.html">
         <link rel="import" href="elements/polymer/blog-post.html">
@@ -17,5 +19,10 @@
         <div class="blog-content">
             <blog-post title="Testing" date="1480010340345">Test</blog-post>
         </div>
+        <input type="text" id="temp">
+        <button onclick="saveVal()">Save</button>
+        </input>
+        <button onclick="getHistory()">History</button>
+        <p id="display"></p>
     </body>
 </html>
